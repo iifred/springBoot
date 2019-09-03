@@ -1,6 +1,0 @@
-person:
-    username:fred
-    age:25
-    map:{k1:v1,k2:12}
-    dog:{name:周杰伦,age:40,sex:1}
-

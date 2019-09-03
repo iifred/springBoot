@@ -29,5 +29,12 @@ public class Dog {
         this.sex = sex;
     }
 
-
+    @Override
+    public String toString() {
+        return "Dog{" +
+                "name='" + name + '\'' +
+                ", age=" + age +
+                ", sex=" + sex +
+                '}';
+    }
 }
