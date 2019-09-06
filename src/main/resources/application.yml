@@ -1,8 +1,5 @@
 server:
   port: 8016
-spring:
-  profiles:
-    active: dev
 ---
 server:
   port: 8017
@@ -13,3 +10,4 @@ spring:
   profiles: prop
 server:
   port: 8018
+
