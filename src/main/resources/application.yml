@@ -11,6 +11,5 @@ spring:
 ---
 spring:
   profiles: prop
-
 server:
   port: 8018
