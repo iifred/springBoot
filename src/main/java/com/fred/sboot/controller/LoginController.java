@@ -12,7 +12,7 @@ import java.util.Map;
 public class LoginController {
     @PostMapping("/user/login")
     public String login(@RequestParam("username") String username, @RequestParam("password") String password, Map<String,Object> map, HttpSession httpSession){
-        if(!StringUtils.isEmpty(username)&&"123456".equals(password)){
+        if(!StringUtils.isEmpty(username)&&"123123".equals(password)){
             httpSession.setAttribute("loginUser",username);
             return "redirect:/main";
         }else{

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Title</title>
+    <!-- Bootstrap core CSS -->
+    <link href="../../public/asserts/css/bootstrap.min.css" th:href="@{/asserts/css/bootstrap.min.css}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="../../public/asserts/css/dashboard.css" th:href="@{/asserts/css/dashboard.css}" rel="stylesheet">
+    <style type="text/css">
+        /* Chart.js */
+
+        @-webkit-keyframes chartjs-render-animation {
+            from {
+                opacity: 0.99
+            }
+            to {
+                opacity: 1
+            }
+        }
+
+        @keyframes chartjs-render-animation {
+            from {
+                opacity: 0.99
+            }
+            to {
+                opacity: 1
+            }
+        }
+
+        .chartjs-render-monitor {
+            -webkit-animation: chartjs-render-animation 0.001s;
+            animation: chartjs-render-animation 0.001s;
+        }
+    </style>
+</head>
+<body>
+<!--		模板页面名称和定义的公共片段名称-->
+<div th:replace="~{commons/bar::topbar}"></div>
+<div class="container-fluid">
+    <div class="row">
+        <div th:replace="~{commons/bar::#sidebar(activeUri='emps')}"></div>
+        <main  role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+            <form th:action="@{/emp}" method="post">
+                <div class="form-group">
+                    <label>LastName</label>
+                    <input type="text" class="form-control" name="lastName" th:value="${emp.lastName}" placeholder="zhangsan">
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" class="form-control" name="email" placeholder="zhangsan@atguigu.com">
+                </div>
+                <div class="form-group">
+                    <label>Gender</label><br/>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="gender"  value="1">
+                        <label class="form-check-label">男</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="gender"  value="0">
+                        <label class="form-check-label">女</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>department</label>
+                    <select class="form-control" name="department.id">
+                        <option th:each="dept:${depts}" th:value="${dept.id}" th:text="${dept.departmentName}">1</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Birth</label>
+                    <input type="text"  name="birth" class="form-control" placeholder="zhangsan">
+                </div>
+                <button type="submit" class="btn btn-primary">添加</button>
+            </form>
+        </main>
+    </div>
+</div>
+</body>
+</html>

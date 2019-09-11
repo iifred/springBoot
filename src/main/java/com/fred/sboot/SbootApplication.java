@@ -18,11 +18,11 @@ public class SbootApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(SbootApplication.class, args);
-        looger.trace("这是trace日志");
-        looger.debug("调试信息日志");
-        looger.info("自定义info日志");
-        looger.warn("这是warn日志");
-        looger.error("这是error日志");
+//        looger.trace("这是trace日志");
+//        looger.debug("调试信息日志");
+//        looger.info("自定义info日志");
+//        looger.warn("这是warn日志");
+//        looger.error("这是error日志");
     }
 
     @Bean
