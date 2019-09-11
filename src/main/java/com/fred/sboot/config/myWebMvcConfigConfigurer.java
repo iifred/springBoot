@@ -1,9 +1,11 @@
 package com.fred.sboot.config;
 
+import com.fred.sboot.component.loginHandlerInterceptor;
 import com.fred.sboot.component.myLocaleResolver;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.LocaleResolver;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
@@ -13,6 +15,7 @@ public class myWebMvcConfigConfigurer implements WebMvcConfigurer {
     public void addViewControllers(ViewControllerRegistry registry) {
         registry.addViewController("/").setViewName("hello");
         registry.addViewController("/login").setViewName("login");
+        registry.addViewController("/main").setViewName("dashboard");
     }
 
 
@@ -23,5 +26,10 @@ public class myWebMvcConfigConfigurer implements WebMvcConfigurer {
     @Bean
     public LocaleResolver localeResolver(){
         return  new myLocaleResolver();
+    }
+
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+        registry.addInterceptor(new loginHandlerInterceptor()).addPathPatterns("/**").excludePathPatterns("/","/login");
     }
 }
