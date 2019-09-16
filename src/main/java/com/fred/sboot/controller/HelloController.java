@@ -1,9 +1,11 @@
 package com.fred.sboot.controller;
 
+import com.fred.sboot.exception.UserNotExit;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.*;
@@ -14,7 +16,10 @@ public class HelloController {
 
     @RequestMapping(value = "hello")
     @ResponseBody
-    public String hello(){
+    public String hello(@RequestParam("username")String user){
+        if (user.equals("fred")){
+            throw new UserNotExit();
+        }
         return "fred";
     }
 
