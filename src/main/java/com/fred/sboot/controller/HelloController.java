@@ -3,7 +3,10 @@ package com.fred.sboot.controller;
 import com.fred.sboot.exception.UserNotExit;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -13,6 +16,10 @@ import java.util.*;
 @Controller
 public class HelloController {
     private Logger logger= LoggerFactory.getLogger(HelloController.class);
+
+
+    @Autowired
+    JdbcTemplate jdbcTemplate;
 
     @RequestMapping(value = "hello")
     @ResponseBody
@@ -36,5 +43,13 @@ public class HelloController {
             logger.info(i.next());
         }
         return "hello";
+    }
+
+
+    @RequestMapping("query1")
+    @ResponseBody
+    public Map<String,Object> mysqlquery(){
+        List<Map<String,Object>> c= jdbcTemplate.queryForList("select * from department");
+        return c.get(0);
     }
 }

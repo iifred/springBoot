@@ -1,13 +1,26 @@
-server:
-  port: 8016
----
-server:
-  port: 8017
+#server:
+#  port: 8016
+#分块
+#---
+#server:
+#  port: 8017
+#spring:
+#  profiles: dev
+#分块
+#---
+#spring:
+#  profiles: prop
+#server:
+#  port: 8018
+#
+#
+#
 spring:
-  profiles: dev
----
-spring:
-  profiles: prop
-server:
-  port: 8018
-
+  datasource:
+    password: 123456
+    username: root
+    url: jdbc:mysql://192.168.1.207:3306/jdbc
+    driver-class-name: com.mysql.jdbc.Driver
+    schema:
+      - classpath:sql/schema-all.sql
+    initialization-mode: never

@@ -10,6 +10,10 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.ApplicationContext;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import javax.sql.DataSource;
+import java.sql.Connection;
+import java.sql.SQLException;
+
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class SbootApplicationTests {
@@ -19,6 +23,9 @@ public class SbootApplicationTests {
 
     @Autowired
     ApplicationContext ioc;
+
+    @Autowired
+    DataSource dataSource;
 
     @Test
     public void contextLoads() {
@@ -41,5 +48,15 @@ public class SbootApplicationTests {
         looger.info("自定义info日志");
         looger.warn("这是warn日志");
         looger.error("这是error日志");
+    }
+
+    @Test
+    public void testmySql() throws SQLException {
+        System.out.println("----------------");
+        System.out.printf(dataSource.getClass().toString());
+        Connection connection = dataSource.getConnection();
+        System.out.println(connection);
+        connection.close();
+
     }
 }
