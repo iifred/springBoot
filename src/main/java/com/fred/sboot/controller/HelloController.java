@@ -17,9 +17,9 @@ import java.util.*;
 public class HelloController {
     private Logger logger= LoggerFactory.getLogger(HelloController.class);
 
-
-    @Autowired
-    JdbcTemplate jdbcTemplate;
+//
+//    @Autowired
+//    JdbcTemplate jdbcTemplate;
 
     @RequestMapping(value = "hello")
     @ResponseBody
@@ -49,7 +49,8 @@ public class HelloController {
     @RequestMapping("query1")
     @ResponseBody
     public Map<String,Object> mysqlquery(){
-        List<Map<String,Object>> c= jdbcTemplate.queryForList("select * from department");
-        return c.get(0);
+//        List<Map<String,Object>> c= jdbcTemplate.queryForList("select * from department");
+//        return c.get(0);
+        return null;
     }
 }

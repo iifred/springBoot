@@ -16,7 +16,7 @@ import javax.servlet.ServletRegistration;
 import java.util.Arrays;
 
 //服务组件配置
-@Configuration
+//@Configuration
 public class myServerConfig {
     //注册三大组件
     @Bean
@@ -25,7 +25,7 @@ public class myServerConfig {
         return servletServletRegistrationBean;
     }
     @Bean
-    public FilterRegistrationBean filterRegistrationBean(){
+    public FilterRegistrationBean filterRegistrationBean1(){
         FilterRegistrationBean registrationBean = new FilterRegistrationBean();
         registrationBean.setFilter(new myFilter());
         registrationBean.setUrlPatterns(Arrays.asList("/hello","/myservlet"));
@@ -42,14 +42,14 @@ public class myServerConfig {
 
 
     ///定制嵌入式的serverlet容器
-    @Bean
-    public WebServerFactoryCustomizer<ConfigurableWebServerFactory> webServerFactoryCustomizer(){
-        return  new WebServerFactoryCustomizer<ConfigurableWebServerFactory>() {
-            //定制嵌入式的serverlet容器相关的规则
-            @Override
-            public void customize(ConfigurableWebServerFactory factory) {
-                factory.setPort(3030);
-            }
-        };
-    }
+//    @Bean
+//    public WebServerFactoryCustomizer<ConfigurableWebServerFactory> webServerFactoryCustomizer(){
+//        return  new WebServerFactoryCustomizer<ConfigurableWebServerFactory>() {
+//            //定制嵌入式的serverlet容器相关的规则
+//            @Override
+//            public void customize(ConfigurableWebServerFactory factory) {
+//                factory.setPort(3030);
+//            }
+//        };
+//    }
 }

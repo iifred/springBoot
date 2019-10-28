@@ -4,6 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ImportResource;
 import org.springframework.web.servlet.View;
@@ -13,6 +14,7 @@ import java.util.Locale;
 
 //@ImportResource(value = {"classpath:beans.xml"}) 指定导入配置文件路径
 @SpringBootApplication
+@ServletComponentScan
 public class SbootApplication {
     public static Logger looger= LoggerFactory.getLogger(SbootApplication.class);
 
